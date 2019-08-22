@@ -1,0 +1,337 @@
+<!-- <p>
+  register works!
+</p> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<form [formGroup]="service.form" class="normal-form"  (submit)="onRegister()">
+  <!-- Value:{{service.form.value | json }} -->
+  <mat-grid-list cols="1" rowHeight="1000px" margin-top=40px;>
+    <mat-grid-tile>
+      <div class="controles-container" >
+         <table class="example-form " cellspacing="0" width=600px; >
+            <!-- <label><h5>Agent Registration</h5></label> -->
+             <!-- <label><h5>Agent Registration</h5></label> -->
+        <tr><td>   
+        <mat-form-field>
+            <input formControlName="firstName" matInput placeholder="FirstName*" >  
+            <!-- ng-trim="false" ng-change="field = field.split(' ').join('')" -->
+            <mat-error>This field is mandatory</mat-error>
+        </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>
+          <mat-form-field>
+            <input formControlName="lastName" matInput placeholder="LastName">
+        </mat-form-field>
+        </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>
+          <mat-form-field>
+              <input formControlName="email" matInput placeholder="Email*">
+              <mat-error>Invalid email address</mat-error>
+          </mat-form-field></td>
+
+        </tr>
+          </table>
+
+          <table class="example-form" cellspacing="1">
+            <tr>
+            <td>
+              <mat-form-field>
+                  <input formControlName="mobileNumber" maxlength="10" matInput placeholder="mobileNumber*">
+                  <mat-error *ngIf="service.form.controls['mobileNumber'].errors?.required">This field is mandatory</mat-error>
+                  <mat-error *ngIf="service.form.controls['mobileNumber'].errors?.minLength">Minimum 10 charactors needed</mat-error>
+              </mat-form-field>
+            </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <td>
+                  <mat-form-field>
+                       <input  matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'" maxlength="6" required appBlockCopyPaste >
+                        <mat-error *ngIf="password?.invalid && (password.dirty || password.touched)"></mat-error> 
+                       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                       <mat-error *ngIf="service.form.controls['password'].errors?.required">
+                          password required
+                        </mat-error>
+                      </mat-form-field>
+              </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               
+              <td>
+                   <mat-form-field>
+                  <input  formControlName="confirmPassword" matInput placeholder="confirmPassword" [type]="hide ? 'password' : 'text'" maxlength="6">
+                  <mat-error *ngIf="conPassword?.invalid && (conPassword.dirty || conPassword.touched)"></mat-error>
+                    <mat-error *ngIf="service.form.controls['confirmPassword'].errors?.required">password confirm is required</mat-error>
+                    <mat-error *ngIf="service.form.controls['confirmPassword'].errors?.compare">
+                        Password does not match
+                    </mat-error> 
+               </mat-form-field>
+              </td>&nbsp;&nbsp;&nbsp;&nbsp;
+              
+               </tr> 
+          </table>
+
+          <table class="example-form " cellspacing="0" width="500px;">
+            <tr>
+                 <td>
+                    <mat-form-field>
+                      <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" placeholder="DateOfBirth*" >
+                      <mat-datepicker-toggle matsufix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  
+             <td>
+              <label><h6>Gender</h6></label>
+              <mat-radio-group formControlname="gender">
+              <mat-grid-list cols="1">
+             <mat-radio-button value="1">Male</mat-radio-button>&nbsp;
+             &nbsp;&nbsp;<mat-radio-button value="2">Female</mat-radio-button></mat-grid-list>
+           </mat-radio-group></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+               <td>
+               <label><h6>Photo Upload</h6></label>  
+                    <input type="file"  formControlname="photoupload"  (change)="onFileSelected($event)" accept=".jpg">
+                </td>
+              </tr>
+            </table><br>
+            <!-- <table class="example-form" cellspacing="0" margin-right="100px">
+                <tr><td>
+            <div >
+                <label><h6>Gender</h6></label>
+                <mat-radio-group arial-label="Gender">
+                  <mat-radio-button value="1">Male</mat-radio-button>
+                  <mat-radio-button value="2">Female</mat-radio-button>
+                </mat-radio-group>
+              </div></td>
+                  </tr>
+            </table> -->
+
+            <table class="example-form" cellspacing="0">
+                <tr>
+            <td>
+              <mat-form-field>
+               
+              
+                <input formControlName="gstNumber" maxlength="15"  matInput placeholder="GSTNumber*">
+                <mat-error>This field is mandatory</mat-error>
+              </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          
+              <td>
+              <mat-form-field>
+                 <input formControlName="adharNumber" matInput placeholder="AdharNumber*" maxlength="12">
+                 <mat-error>Please Enter the 12 digit aadhar number</mat-error>
+              </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+              <td>
+               <mat-form-field>
+                  <input formControlName="panNumber" matInput placeholder="PanNumber*" maxlength="10" #input (input)="input.value=$event.target.value.toUpperCase()">
+                  <mat-error>Please Enter the 10 digit pannumber</mat-error>
+              </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </tr>
+            </table>
+
+            <table class="example-form" cellspacing="0">
+                <h5>Address</h5>
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <input formcontrolName="addressline1" matInput placeholder="AddressLine1">
+                    <mat-error>This field is required</mat-error>
+                  </mat-form-field>
+                </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <td>
+                    <mat-form-field>
+                      <input formcontrolName="addressline2" matInput placeholder="AddressLine2">
+                      <mat-error>This field is required</mat-error>
+                    </mat-form-field>
+                  </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                      <td><mat-form-field>
+                        <mat-select formControlName="city" matInput placeholder="City">
+                          <mat-option>None</mat-option>
+                          <ng-container *ngFor="let city of cities">
+                            <mat-option value="{{city.id}}">{{city.value}}</mat-option>
+                          </ng-container>
+                        </mat-select>
+                         <!-- <input formControlName="city" matInput placeholder="City"> -->
+                      </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- <td>
+                      <mat-form-field>
+                        <input formcontrolName="addressline3" matInput placeholder="AddressLine3">
+                      </mat-form-field>
+                    </td>&nbsp;&nbsp;&nbsp;&nbsp; -->
+               </tr>
+             </table>
+
+             <table class="example-form" cellspacing="0">
+                <tr>
+                  <td>
+                    <mat-form-field>
+                      <input formControlName="pincode" maxlength ="6" matInput placeholder="Pincode">
+                      <mat-error *ngIf="service.form.controls['pincode'].errors?.required">pincode should be only 6 digits </mat-error>
+                    </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+                    <!-- <mat-form-field>
+                      <input formControlName="state" matInput placeholder="State">
+                    </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp; -->
+                     <mat-form-field>
+                       <mat-select formControlName="state" matInput placeholder="State">
+                         <mat-option>None</mat-option>
+                         <ng-container *ngFor="let state of states">
+                           <mat-option value="{{state.id}}">{{state.value}}</mat-option>
+                         </ng-container>
+                       </mat-select>
+                     </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <td>
+                   <!-- <mat-form-field>
+                        <input formControlName="country" matInput placeholder="Country">
+                    </mat-form-field></td> -->
+                    <mat-form-field>
+                      <mat-select formControlName="country" matInput placeholder="Country">
+                        <mat-option>None</mat-option>
+                        <ng-container *ngFor="let country of countries">
+                          <mat-option value="{{country.id}}">{{country.value}}</mat-option>
+                        </ng-container>
+                      </mat-select>
+                    </mat-form-field>
+             </tr>
+         </table><br>
+           
+          <!-- <table class="example-form" cellspacing="0">
+           <h5>Address Line1</h5>
+                <tr>
+              <td>
+                <mat-form-field>
+                    <input formControlName="address" matInput placeholder="doorno/street/area">
+                </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <td><mat-form-field>
+                    <input formControlName="city" matInput placeholder="City">
+                </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <td>
+                <mat-form-field>
+                  <input formControlName="pincode" maxlength ="6" matInput placeholder="Pincode">
+                  <mat-error *ngIf="service.form.controls['pincode'].errors?.required">pincode should be only 6 digits </mat-error>
+                </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+            </tr></table>
+
+            <table class="example-form" cellspacing="0">
+                 <tr>
+            <td>
+              <mat-form-field>
+                <input formControlName="state" matInput placeholder="State">
+              </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+           <td>
+              <mat-form-field>
+                <input formControlName="country" matInput placeholder="Country">
+              </mat-form-field></td>
+              </tr>
+          </table><br>
+              <table class="example-form" cellspacing="0">
+                <h5>Address Line 2</h5>
+              <tr>
+                <td>
+                  <mat-form-field>
+                      <input formControlName="address" matInput placeholder="doorno/street/area">
+                  </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <td><mat-form-field>
+                    <input formControlName="city" matInput placeholder="City">
+                </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <td>
+                    <mat-form-field>
+                      <input formControlName="pincode" maxlength ="6" matInput placeholder="Pincode">
+                      <mat-error *ngIf="service.form.controls['pincode'].errors?.required">pincode should be only 6 digits </mat-error>
+                    </mat-form-field></td>
+                  </tr></table>
+                <table class="example-form" cellspacing="0">
+                <tr>
+                  <td><mat-form-field>
+                       <input formControlName="state" matInput placeholder="State">
+                      </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <td>
+                    <mat-form-field>
+                      <input formControlName="country" matInput placeholder="Country">
+                    </mat-form-field></td>
+                      </tr>
+                 </table> -->
+                        
+
+            <label><h5>Business and Credit Information</h5></label><br>
+            <label><h5>Account Information</h5></label>
+            <table class="example-form" cellspacing="1">
+            <tr>
+              <td>
+              <mat-form-field>
+                  <input formControlName="accountholdername" matInput placeholder="AccountHolderName*">
+                  <mat-error>This field is mandatory</mat-error>
+                </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <!-- <td> <mat-form-field>
+                  <input formControlName="lastName" matInput placeholder="LastName">
+                 </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;
+                 <td> -->
+                        <td> <mat-form-field>
+                           <input formControlName="phoneNo" maxlength="10" matInput placeholder="PhoneNumber">
+                           <mat-error *ngIf="service.form.controls['phoneNo'].errors?.required">This field is mandatory</mat-error>
+                           <mat-error *ngIf="service.form.controls['phoneNo'].errors?.minlengty">Minimum 10 charactors needed</mat-error>
+                          </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <td>
+                              <td>
+                                  <!-- <mat-form-field>
+                                   <input formControlName="accountType" matInput placeholder="AccountType">
+                                 </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp; -->
+                                 <mat-form-field>
+                                   <mat-select formControlName="accountType" matInput placeholder="AccontType">
+                                     
+                                     <ng-container *ngFor="let accountType of accounts">
+                                        <mat-option value="{{accountType.id}}">{{accountType.value}}</mat-option>
+                                     </ng-container>
+                                   </mat-select>
+                                 </mat-form-field>
+                  
+                </tr></table>
+                 <table class="example-form" cellspacing="0">
+                    <tr>
+                      <!-- <mat-form-field>
+                      <input formControlName="email" matInput placeholder="Email">
+                      <mat-error>Invalid email address</mat-error>
+                    </mat-form-field></td> -->
+                    </tr></table>
+                         <table class="example-form" cellspacing="0">
+                          <tr> <td>
+                            <mat-form-field>
+                                <input formControlName="accountNumber" maxlength="16" matInput placeholder="Bankaccountno*">
+                                <mat-error>This field is mandatory</mat-error>
+                                <mat-error *ngIf="service.form.controls['mobileNumber'].errors?.minlengty">Minimum 16 charactors needed</mat-error>
+                              </mat-form-field></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <td> <mat-form-field>
+                                <input formControlName="ifsccode" matInput placeholder="IFSCCode*">
+                                <mat-error>This field is mandatory</mat-error>
+                               </mat-form-field></td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                               <td> <mat-form-field>
+                                <input formControlName="branch" matInput placeholder="Branch">
+                               </mat-form-field></td>
+                          </tr></table>&nbsp;
+                         <table class="example-form" cellspacing="0">
+                          <tr><td><button class="button" mat-raised-button color="primary"  type="submit"  [disabled]="service.form.invalid">Register</button>
+                        </td> 
+                            <td><button class="button" mat-raised-button color="primary" type="reset" (click)="onReset()" >Reset</button>
+                         </td>
+                        </tr>
+            
+                      </table>
+          
+      </div>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="add-bottom-padding">
+          
+        </div>
+      
+      </mat-grid-tile>
+  
+  </mat-grid-list>
+
+</form>
+
+<!-- [disabled]="service.form.invalid" -->

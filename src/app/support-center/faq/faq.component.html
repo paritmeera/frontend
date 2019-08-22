@@ -1,0 +1,55 @@
+<!-- <p>
+  faq works!
+</p> -->
+
+<div style="text-align: center">
+  <h3>
+    FAQ
+  </h3>
+  <!-- <mat-toolbar class="white"><img  src="assets/images.jpg" width="43%" style="margin:auto"></mat-toolbar> -->
+  <ol>
+      <!-- <mat-toolbar class="white"><img  src="assets/images.jpg" width="100%" style="margin:auto"></mat-toolbar> -->
+    <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title class="q1">
+        
+        <li><h5>If i need to cancel my travel,what's the latest i can do this by?</h5></li>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>With Planmytravel, you can cancel your flight no later than 3 hours before the time of departure. 
+      If you need to cancel your reservation within 3 hours of the departure you need to contact 
+      the airline directly for cancellation and only then contact Cleartrip for cancelling your 
+      reservation in the Cleartrip system.</p>
+         </mat-expansion-panel>
+        </mat-accordion>
+        
+
+<mat-accordion>
+<mat-expansion-panel (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false">
+<mat-expansion-panel-header>
+<mat-panel-title class="q1">
+                                
+<li><h5>How will i get my money back after a cancellation?</h5></li>
+</mat-panel-title>
+</mat-expansion-panel-header>
+<p>We will credit the money back to the same account you used while making the booking. For example, if you used your credit card, we will make an appropriate charge reversal. If you used your debit card, we will credit the money back to the debit card.</p>
+</mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion>
+<mat-expansion-panel (opened)="panelOpenState = true"
+               (closed)="panelOpenState = false">
+<mat-expansion-panel-header>
+<mat-panel-title class="q1">                                                         
+<li><h5>How long does it take to process a refund?</h5></li>
+</mat-panel-title>
+</mat-expansion-panel-header>
+<p>We usually process the refund within 4 working days of cancellation. However, it may take slightly longer to reflect in your account statement depending upon your bank. We’ve noticed that it takes about 14 working days for most refunds to hit their respective accounts.
+</p>
+</mat-expansion-panel>
+</mat-accordion>
+</ol>
+</div>

@@ -1,0 +1,29 @@
+<!-- <p>
+  support-center works!
+</p> -->
+
+<!-- <div class="div1">
+          <button  routerLinkActive="active-link" mat-button [matMenuTriggerFor]="Support"><mat-icon>insert_emoticon</mat-icon> &nbsp; Support Center</button>
+        <!-<button mat-button [matMenuTriggerFor]="Support"><mat-icon>insert_emoticon</mat-icon> &nbsp; Support Center</button> ->
+        <mat-menu #Support="matMenu">
+          <button mat-menu-item ="faq" routerLink="/faq">FAQ</button>
+          <button mat-menu-item [matMenuTriggerFor]="complaints">Complaints</button>
+          <button mat-menu-item ="emergency" routerLink="/Emergency">Emergency Contact</button>
+        </mat-menu>
+        
+        <mat-menu #complaints="matMenu">
+            <button mat-menu-item ="refund" routerLink="/refund issues">Refund Issues</button>
+            <button mat-menu-item ="confirmation" routerLink="/confirmation issues">Confirmation Issues</button>
+            <button mat-menu-item ="moneytransfer" routerLink="/money transfer issues">Money Transfer Issues</button>
+        </mat-menu>
+      </div> -->
+      <div>
+        <button class="div1"  routerLinkActive="active-link" routerLink="/faq" mat-button [matMenuTriggerFor]="Faq"><mat-icon>contact_support</mat-icon> &nbsp; FAQ</button>
+        <button class="div2" routerLinkActive="active-link" mat-button [matMenuTriggerFor]="complaints"><mat-icon>report</mat-icon> &nbsp; Complaints</button>
+        <mat-menu #complaints="matMenu">
+          <button mat-menu-item ="refund" routerLink="/refund issues">Refund Issues</button>
+          <button mat-menu-item ="confirmation" routerLink="/confirmation issues">Confirmation Issues</button>
+          <button mat-menu-item ="moneytransfer" routerLink="/money transfer issues">Money Transfer Issues</button>
+      </mat-menu>
+      <button class="div2" routerLinkActive="active-link" routerLink="/Emergency" mat-button [matMenuTriggerFor]="emergency"><mat-icon>contact_phone</mat-icon> &nbsp; Emergency Contact</button>
+      </div>

@@ -1,0 +1,125 @@
+<!-- <p>
+  confirmation-issues works!
+</p> -->
+<div class="container-fluid">
+  <mat-toolbar>
+    <span class="fill-remaining-space"></span>
+    <span>Confirmation Issues</span>
+    <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+<div class="container">
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()" autocomplete="off">
+<mat-grid-list cols="0" rowHeight="700px">
+<mat-grid-tile>
+  <div class="controles-container">
+    <table class="example-form " cellspacing="0">
+    <tr><td>
+      <mat-form-field>
+      <input formControlName="customername" [(ngModel)]="confirm.customername" matInput placeholder="Customer Name*">
+      <mat-error>This is mandatory.</mat-error>
+         </mat-form-field></td></tr></table>
+   <table class="example-form " cellspacing="0">
+    <tr><td>
+    <mat-form-field>
+      <input formControlName="mobileno" [(ngModel)]="confirm.mobileno" matInput placeholder="Mobile Number*">
+      <mat-error *ngIf="service.form.controls['mobileno'].errors?.required">This field is mandatory</mat-error>
+                                <mat-error *ngIf="service.form.controls['mobileno'].errors?.minlength">Minimum 8 charactors needed</mat-error>
+        </mat-form-field></td></tr></table>
+    
+   <table class="example-form " cellspacing="0">
+      <tr><td>
+      <mat-form-field>
+        <input formControlName="email" [(ngModel)]="confirm.email" matInput placeholder="Email Id*">
+        <mat-error>This is mandatory.</mat-error>
+          </mat-form-field></td></tr></table>
+
+   <table class="example-form " cellspacing="0">
+       <tr><td>
+       <mat-form-field>
+        <mat-select formControlName="source" [(ngModel)]="confirm.source" placeholder="Source">
+              <mat-option>Select</mat-option>
+              <ng-container *ngFor="let source of sources">
+                <mat-option value="{{source.id}}">{{source.value}}</mat-option>
+              </ng-container>
+            </mat-select>
+              </mat-form-field></td>
+              <td>
+                <mat-form-field>
+                  <mat-select formControlName="destination" [(ngModel)]="confirm.destination" placeholder="Destination">
+                    <mat-option>Select</mat-option>
+                    <ng-container *ngFor="let destination of destinations">
+                      <mat-option value="{{destination.id}}">{{destination.value}}</mat-option>
+                    </ng-container>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              </tr>
+              </table>
+  <table class="example-form " cellspacing="0">
+    <tr><td>
+    <mat-form-field>
+    <input formControlName="ticketnumber" [(ngModel)]="confirm.ticketnumber" matInput placeholder="Ticket Number">
+    </mat-form-field></td></tr></table>
+ <table class="example-form " cellspacing="0">
+   <tr><td>
+   <mat-form-field>
+   <input formControlName="bookeddate" [(ngModel)]="confirm.bookeddate" matInput [matDatepicker]="picker" placeholder="Booked Date">
+   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+   <mat-datepicker #picker></mat-datepicker>
+   </mat-form-field></td></tr></table>
+   <table class="example-form " cellspacing="0">
+      <tr><td>
+      <mat-form-field>
+      <input formControlName="amountpaid" [(ngModel)]="confirm.amountpaid" matInput placeholder="Total Amout Paid">
+      </mat-form-field></td></tr></table>
+
+      <table class="example-form " cellspacing="0">
+          <tr><td>
+          <mat-form-field>
+          <input formControlName="amountpaiddate" [(ngModel)]="confirm.amountpaiddate" matInput [matDatepicker]="picker1" placeholder="Amout Paid Date">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+   <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field></td></tr></table>
+
+          
+      <table class="example-form " cellspacing="0">
+          <tr><td>
+          <mat-form-field>
+          <input formControlName="totalmembers" [(ngModel)]="confirm.totalmembers" matInput placeholder="Total Members">
+          </mat-form-field></td></tr></table>
+
+          <table class="example-form" cellspacing="0">
+              <tr><td>
+                <button class="button" mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button></td>
+         <td>
+           <button class="button" mat-raised-button color="warn" (click)="onClear()">Clear</button></td></tr></table>       
+  </div>
+</mat-grid-tile>
+</mat-grid-list>
+</form>
+</div>
+</div> 
+
+<!--<mat-card class="example-card">
+<mat-card-header>
+  <div mat-card-avatar class="example-header-image"></div>
+  <mat-card-title>Shiba Inu</mat-card-title>
+  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+</mat-card-header>
+ <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+<!--<mat-card-content>
+    
+  <p>
+    
+    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+    bred for hunting.
+  </p>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-button>LIKE</button>
+  <button mat-button>SHARE</button>
+</mat-card-actions>
+</mat-card> -->
+
+

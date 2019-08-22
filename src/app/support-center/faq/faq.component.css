@@ -1,0 +1,31 @@
+dd.item
+{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid blue;
+    padding-left: 15px;
+}
+h3
+{
+background-color: rgb(167, 163, 158);
+}
+.q1
+{
+
+margin-left: 350px;
+margin-right: 250px;
+}
+p
+{
+    margin-left: 350px;
+    margin-right: 350px; 
+}
+.mat-icon
+{
+    margin-right: 650px;
+}
+.white
+{
+    margin-left: 350px;
+    margin-right: 550px; 
+}

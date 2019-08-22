@@ -1,0 +1,20 @@
+@media only screen and (min-width: 600px) {
+    ::ng-deep .marleft{
+        margin-left:300px
+    }    
+}
+
+.table-head-fix{
+    width: 300px;
+    font-size:16px;
+    color: #fb8c00;
+    text-align: center;
+    margin-left: 300px;
+}
+
+.mat-header-cell,.mat-cell {
+    font-size: 14px;
+    min-height: 48px;
+    text-align: center;
+    border-right: 1px solid rgb(36, 33, 33);
+}

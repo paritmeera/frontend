@@ -1,0 +1,97 @@
+<!-- <p>
+  packages works!
+</p> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<form [formGroup]="service.form" class="normal-form" (submit)="onsubmit()">
+  <mat-grid-list cols="1" rowHeight="650px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <table class="example-form"  cellspacing="0">
+          <label><h5>Package details</h5></label>
+          <tr>
+            <td>
+              <mat-form-field>
+                <input formControlName="packageName" [(ngModel)]="packageModel.packageName" matInput placeholder="PackageName">  
+                 <mat-error>This field is mandatory</mat-error>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field>
+                <input formControlName="numberofdays" [(ngModel)]="packageModel.numberOfDays" matInput placeholder="NumberOfDays">  
+                 <mat-error>This field is mandatory</mat-error>
+              </mat-form-field>
+            </td>
+           </tr>
+        </table>
+        <table class="example-form" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <input formControlName="packagecost"  [(ngModel)]="packageModel.packagecost" matInput placeholder="PackageCost">  
+                 <mat-error>This field is mandatory</mat-error>
+              </mat-form-field>
+            </td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>
+              <mat-form-field>
+                <input formControlName="transfers" [(ngModel)]="packageModel.transfers" matInput placeholder="Transfers">  
+                 <mat-error>This field is mandatory</mat-error>
+              </mat-form-field>
+            </td>
+           </tr>
+        </table>
+
+        <table class="example-form" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <input formControlName="hotels" [(ngModel)]="packageModel.hotels" matInput placeholder="Hotels">  
+                 <mat-error>This field is mandatory</mat-error>
+              </mat-form-field>
+            </td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>
+              <mat-form-field>
+                <input formControlName="sightseeings"  [(ngModel)]="packageModel.sightseeings" matInput placeholder="Sightseeings">  
+                 <mat-error>This field is mandatory</mat-error>
+              </mat-form-field>
+            </td>
+           </tr>
+        </table>
+
+        <table class="example-form" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                <!-- <input formControlName="numberofplaces"  [(ngModel)]="packageModel.numberOfPlaces" matInput placeholder="NumberOfPlaces">  
+                 <mat-error>This field is mandatory</mat-error> -->
+                 <mat-select formControlName="numberofplaces"  [(ngModel)]="packageModel.numberOfPlaces" matInput placeholder="NumberOfPlaces">
+                  <mat-option>None</mat-option>
+                  <ng-container *ngFor="let numberofplaces of palces">
+                    <mat-option value="{{numberofplaces.id}}">{{numberofplaces.value}}</mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+            </td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>
+              <mat-form-field>
+                <input formControlName="museums"  [(ngModel)]="packageModel.museums" matInput placeholder="Museums">  
+                 <mat-error>This field is mandatory</mat-error>
+              </mat-form-field>
+            </td>
+           </tr>
+        </table>
+
+        <table class="example-form" cellspacing="0">
+          <tr><td><button class="button" mat-raised-button color="primary"  type="submit"  [disabled]="service.form.invalid">Submit</button>
+        </td> 
+            <td><button class="button" mat-raised-button color="primary" type="reset" (click)="onReset()" >Reset</button>
+         </td>
+        </tr>
+
+      </table>
+
+
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</form>

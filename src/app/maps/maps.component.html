@@ -1,0 +1,14 @@
+<div class="row marleft">
+  <div class="col m12 s12" style="margin-top:40px">
+      <div class="col m12 s12 mat-elevation-z8" style="border-radius:4px;  background: linear-gradient(60deg,#ab47bc,#512f6f); padding:10px">
+          <h4 class="white-text">Google Maps</h4>
+          <!-- <h5 class="white-text">Handcrafted by our friends from Google</h5> -->
+        </div>
+        <div class="row center" style="margin-top:-10px">
+            <agm-map class="marleft" [latitude]="lat" [longitude]="lng">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+              </agm-map>
+      </div>
+    </div>
+</div>
+       

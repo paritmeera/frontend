@@ -1,0 +1,16 @@
+ div.container{
+    margin: 80px 80px;
+    margin-left: 200px;
+    /* text-align: center; */
+    font-family: "Times New Roman", Times, serif;
+}
+
+.fill-remaining-space{
+    flex: 1 1 auto;
+} 
+.mat-toolbar{
+
+    margin-left: 150px;
+    text-align: center;
+}
+

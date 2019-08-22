@@ -1,0 +1,52 @@
+<!-- <p>
+  agents works!
+</p> -->
+<div class="row marleft">
+  <div class="col m12 s12" style="margin-top:40px">
+    <div class="col m12 s12 white mat-elevation-z8" style="border-radius:40px">
+      <div class="col m12 s12 mat-elevation-z8" style="margin-top:-20px;border-radius:-4px; background: linear-gradient(60deg,#9222fa,#9222fa); padding:10px">
+        <h3 class="white-text">Agent Details</h3>
+      </div>
+      <table mat-table [dataSource]="dataSource">
+           <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+                  <!-- No Column -->
+                  <ng-container matColumnDef="serialno">
+                    <th mat-header-cell *matHeaderCellDef class="table-head-fix"> serial No</th>
+                    <td mat-cell *matCellDef="let element"> {{element.serialno}} </td>
+                  </ng-container>
+                  
+                  <!-- Name  -->
+                  <ng-container matColumnDef="Aname">
+                      <th mat-header-cell *matHeaderCellDef class="table-head-fix"> Agent Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Aname}} </td>
+                  </ng-container>
+
+                  <!-- ph NUmber  -->
+                  <ng-container matColumnDef="Pnumber">
+                                          <th mat-header-cell *matHeaderCellDef class="table-head-fix"> Phone Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Pnumber}} </td>
+                  </ng-container>
+          
+                 <!-- Address -->
+                  <ng-container matColumnDef="address">
+                   <th mat-header-cell *matHeaderCellDef class="table-head-fix"> Address </th>
+                   <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                  </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns:displayedColumns;"></tr> 
+              </table>
+            
+              <!-- <mat-paginator #paginator
+    [length]="dataSource.data.length" 
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator> -->
+    
+    </div>
+  
+  </div>
+
+</div>

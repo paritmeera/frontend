@@ -1,0 +1,37 @@
+div.container{
+    margin: 100px 100px;
+    
+}
+
+.fill-remaining-space{
+    flex: 1 1 auto;
+}
+.form.normal-form{
+    margin: 20px;
+    
+}
+.controles-container{
+    width: 100%;
+    padding: 12%;
+    margin-left: 200px;
+    margin-top: -40px;
+
+}
+.controles-container > *{
+    width: 50%;
+    text-align: center;
+    
+}
+.button{
+    width:50%;
+    height:50%;
+    color:white;
+    background-color:#8a2be2;
+    margin-top: 10px;
+
+}
+.example-form {
+   
+    height: 40%;
+    width: 60%;
+  }

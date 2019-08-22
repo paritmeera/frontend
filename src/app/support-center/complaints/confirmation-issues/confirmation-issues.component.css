@@ -1,0 +1,48 @@
+div.container-fluid
+{
+margin:0px, 40px;
+background-color: white;
+}
+
+.fill-remaining-space
+{
+    flex:1 1 auto;
+    color: blue;
+}
+.mat-toolbar
+{
+    background-color: rgb(139, 137, 141);
+}
+
+form.normal-form
+{
+margin: 10px;
+}
+.controles-container
+{
+    width: 60%;
+    padding: 5%;
+    /* background-color: brown; */
+}
+.controles-container > *
+{
+    width: 100%;
+}
+.example-form
+{
+min-width: 150px;
+max-width: 500px;
+width: 100%;
+}
+
+snack-bar-container.success
+{
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+snack-bar-container.notification simple-snack-bar
+{
+    font-size: 18px !important;
+    font-weight: bold;
+}
